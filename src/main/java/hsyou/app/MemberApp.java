@@ -1,13 +1,16 @@
 package hsyou.app;
 
+import hsyou.config.AppConfig;
 import hsyou.user.Grade;
 import hsyou.user.Member;
 import hsyou.user.MemberService;
-import hsyou.user.MemberServiceImpl;
 
 public class MemberApp {
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
+        AppConfig appConfig = new AppConfig();
+
+        MemberService memberService = appConfig.memberService();
+
         Member member = new Member(1L, "hsyou", Grade.VIP);
 
         memberService.join(member);
